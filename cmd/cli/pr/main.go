@@ -173,7 +173,7 @@ func main() {
 	githubURL := fmt.Sprintf("https://api.github.com/repos/%s/%s/pulls", *githubOwner, *githubRepo)
 
 	pr := PullRequest{
-		Title: *prTitle,
+		Title: fmt.Sprintf("[%s] %s", *jiraIssueKey, *prTitle),
 		Body:  fmt.Sprintf("%s/browse/%s", jiraBaseURL, *jiraIssueKey),
 		Head:  *sourceBranch,
 		Base:  *baseBranch,
