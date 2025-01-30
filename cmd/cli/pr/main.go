@@ -33,7 +33,7 @@ type PullRequestResponse struct {
 
 var (
 	jiraIssueKey = flag.String("issue", "", "The JIRA issue key (e.g., PROJECT-123)")
-	baseBranch   = flag.String("base", "", "The base branch for the pull request")
+	baseBranch   = flag.String("base", "", "The base branch for the pull request. This is optional and used as an override. The default is determined by using git symbolic-ref refs/remotes/origin/HEAD.")
 )
 
 func ptr(s string) *string {
