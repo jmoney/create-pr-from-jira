@@ -30,7 +30,7 @@ brews:
       owner: jmoney
       name: homebrew-personal
 
-      branch: main
+      branch: master
 
       token: "{{ .Env.GITHUB_TOKEN }}"
 
@@ -76,7 +76,7 @@ brews:
       owner: jmoney
       name: homebrew-personal
 
-      branch: main
+      branch: master
 
       token: "{{ .Env.GITHUB_TOKEN }}"
 
