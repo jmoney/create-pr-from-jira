@@ -204,8 +204,11 @@ func main() {
 	if resp.StatusCode == http.StatusCreated {
 		var prResp PullRequestResponse
 		err = json.Unmarshal(body, &prResp)
+		if err != nil {
+			log.Fatalf("Error unmarshaling PR response: %v", err)
+		}
 		fmt.Println("Pull request created successfully!")
-		fmt.Println(prResp.URL)
+		fmt.Println(strings.Replace(prResp.URL, "https://api.github.com/repos", "https://github.com", 1))
 	} else {
 		log.Fatalf("Failed to create pull request. Status: %s, Response: %s", resp.Status, string(body))
 	}
