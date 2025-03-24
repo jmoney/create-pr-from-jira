@@ -208,7 +208,9 @@ func main() {
 			log.Fatalf("Error unmarshaling PR response: %v", err)
 		}
 		fmt.Println("Pull request created successfully!")
-		fmt.Println(strings.Replace(prResp.URL, "https://api.github.com/repos", "https://github.com", 1))
+		url := strings.Replace(prResp.URL, "https://api.github.com/repos", "https://github.com", 1)
+		url = strings.Replace(url, "pulls", "pull", 1)
+		fmt.Println(url)
 	} else {
 		log.Fatalf("Failed to create pull request. Status: %s, Response: %s", resp.Status, string(body))
 	}
